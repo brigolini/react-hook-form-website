@@ -8,7 +8,7 @@ import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
 
 export default {
-  title: "API Documentação",
+  title: "Documentação da API",
   header: {
     description:
       "foca em prover a melhor experiência para o desenvolvedor com uma API Simplificada",
@@ -17,14 +17,26 @@ export default {
     title: "useForm",
     intro: (
       <>
-        Utilizando <code>useForm</code>, você receberá os seguintes métodos{" "}
+        Chamando o <code>useForm</code>, você receberá os seguintes métodos{" "}
       </>
     ),
     description: (
       <p>
         <code>useForm</code> também tem argumentos <b>opcionais</b>. O exempo a
-        seguir demonstra todas as opções, com valor padrão.
+        seguir demonstra todas as opções com valor padrão.
       </p>
+    ),
+    validateCriteriaMode: (
+      <>
+        <p>
+          Quando for escolhido <code>firstErrorDetected</code> (comportamento padrão), apenas
+          o primeiro erro de cada campo será mostrado a cada validação.
+        </p>
+        <p>
+          Quando for escolhido <code>all</code> todos os erros de cada campo
+          serão mostrados a cada validação.
+        </p>
+      </>
     ),
     validationResolver: goToSection => (
       <>
@@ -47,8 +59,8 @@ export default {
     validateContext: (
       <>
         <p>
-          This context object will be injected into{" "}
-          <code>validationResolver</code>'s second argument or{" "}
+          Esse objeto de contexto será injetado em um{" "}
+          <code>validationResolver</code> como segundo argumento ou{" "}
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -67,16 +79,16 @@ export default {
           todos os campos' e reunir todos os primeiros erros encontrados.
         </p>
         <p>
-          Com a configuração de <code>all</code>, todos as validações de campos'
-          irá executar e reunir todos os erros encontrados
+          Com a configuração de <code>all</code>, todas as validações de campos'
+          serão executadas e irá reunir todos os erros encontrados
         </p>
       </>
     ),
     validateOnSubmit: (
       <>
         A validação irá ativar o evento de <code>submit</code> e os campos
-        inválidos serão anexados, o evento <code>onChange</code> ouve os eventos
-        para validar-los novamente.
+        inválidos serão anexados, o evento <code>onChange</code> "ouve" os eventos
+        para validá-los novamente.
       </>
     ),
     validateOnBlur: (
@@ -120,7 +132,7 @@ export default {
 
         <p>
           <b className={typographyStyles.note}>Nota:</b>{" "}
-          <code>defaultValues</code> não tem população automática, com o
+          <code>defaultValues</code> não é populado automáticamente, com o
           registro manual do campo (ex:{" "}
           <code>{`register({ name: 'test' })`}</code>) porquê o campo manual{" "}
           <code>register</code> não provê a props <code>ref</code> para o React
@@ -179,7 +191,7 @@ export default {
           rel="noopener noreferrer"
           href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
         >
-          veja mais sobre as validações imbutidas no navegador
+          veja mais sobre as validações embutidas no navegador
         </a>
         , e veja também a seção{" "}
         <button
@@ -197,10 +209,10 @@ export default {
     description: (
       <>
         <p>
-          Este método permite você o <code>unregister</code> um único campo ou
+          Este método permite a você <code>unregister</code> (desregistrar) um único campo ou
           matriz (array) de campos. Isto é útil quando você precisa registrar
           seu campo durante o <code>useEffect</code> como registro customizado e
-          para remover o registro após o componente ser desmontado.
+          deve remover o registro após o componente ser desmontado.
         </p>
         <p>
           <b className={typographyStyles.note}>Nota:</b> Quando você remove o
